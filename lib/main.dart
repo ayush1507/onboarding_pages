@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding_page/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,7 +67,7 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 100),
+        padding: EdgeInsets.only(top: 80),
         color: Colors.white,
         child: Column(
           children: [
@@ -198,15 +199,35 @@ class _OnboardingState extends State<Onboarding> {
                       ),
                     ),
                   ),
-                 
                 ],
               ),
             ),
-            SizedBox(height:80 ,)
-           , Row(
+            SizedBox(
+              height: 80,
+            ),
+            Row(
               children: _pageIndicator(),
               mainAxisAlignment: MainAxisAlignment.center,
-            )
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Color(0xff5ABD8C),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Center(
+                      child: Text(
+                    'Skip It!',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )),
+                ))
           ],
         ),
       ),
